@@ -9,7 +9,9 @@ import { Not } from 'typeorm';
 
 @Injectable()
 export class AdminService {
-  @InjectRepository(AdminEntity) private readonly repo: AdminRepo
+  constructor(
+    @InjectRepository(AdminEntity) private readonly repo: AdminRepo
+  ) { }
   async create(createAdminDto: CreateAdminDto) {
     try {
       const { full_name, email, password } = createAdminDto
