@@ -2,6 +2,8 @@ import { Module } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { TypeOrmModule } from "@nestjs/typeorm"
+import { EventModule } from './api/event/event.module';
+import { AdminModule } from './api/admin/admin.module';
 
 @Module({
   imports: [TypeOrmModule.forRoot({
@@ -11,7 +13,7 @@ import { TypeOrmModule } from "@nestjs/typeorm"
     logging: false,
     autoLoadEntities: true,
     entities: []
-  })],
+  }), EventModule, AdminModule],
   controllers: [AppController],
   providers: [AppService],
 })
